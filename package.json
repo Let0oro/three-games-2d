@@ -1,0 +1,25 @@
+{
+  "name": "three-games-async-axios-socket-js-rtc",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "expose": "vite --host",
+    "build": "vite build",
+    "start": "nodemon ./backend/server.cjs",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4",
+    "vite": "^5.3.4"
+  },
+  "dependencies": {
+    "axios": "^1.7.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "socket.io": "^4.7.5",
+    "socket.io-client": "^4.7.5"
+  }
+}

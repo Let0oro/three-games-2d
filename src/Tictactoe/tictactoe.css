@@ -1,0 +1,48 @@
+#tictactoe-game {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 10px;
+    margin: 20px auto;
+    width: max-content;
+}
+
+.row {
+    display: contents; /* Ahora se usa grid para el layout */
+}
+
+.tile {
+    width: 100px;
+    height: 100px;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 2em;
+    color: #2e3b4e;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.tile::selection {
+    background-color: transparent;
+}
+
+.tile:hover {
+    background-color: #d0d0d0;
+    transform: scale(1.1);
+}
+
+.tile:active {
+    transform: scale(0.9);
+}
+
+.tile[data-player="X"] {
+    color: #f44336; /* Color para la X */
+}
+
+.tile[data-player="O"] {
+    color: #2196f3; /* Color para la O */
+}
+
