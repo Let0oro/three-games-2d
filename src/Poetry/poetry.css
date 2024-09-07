@@ -1,0 +1,12 @@
+.hig {
+    background-color: rgba(35, 142, 142, 0.564);
+}
+
+input {
+    width: 20rem;
+    height: 2rem;
+}
+
+.evaluation_div {
+    display: flex;
+}

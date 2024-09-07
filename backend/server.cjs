@@ -28,7 +28,7 @@ io.on("connection", (socket) => {
   console.log("A user connected");
 
   socket.on("line", (data) => {
-    console.log({ data });
+    // console.log({ data });
     io.emit("line", data);
   });
 

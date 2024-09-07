@@ -3,8 +3,8 @@ const vowels = '[aeiouáéíóúü]+';
 const prefix = '(\\s+)[aeyou]?(\\s+)';
 const vowelsOpen = '[aeoáéó]';
 const vowelsClose = '[iuíú]';
-const preps =
-  'a, ante, bajo, cabe, con, contra, de, desde, durante, en, entre, hacia, hasta, mediante, para, por, según, sin, so, sobre, tras, versus, vía'.split(
+const prepsProns =
+  'a, ante, bajo, cabe, con, contra, de, desde, durante, en, entre, hacia, hasta, mediante, para, por, según, sin, so, sobre, tras, versus, vía, el, lo, la, le, se, los, las, les, lo'.split(
     ', '
   );
 
@@ -85,7 +85,6 @@ function sinalefaMetric(
             }
           }
         }
-        console.log({ singleFeet });
       }
       return {
         len: end + !!ix,
@@ -202,12 +201,8 @@ function getMetricFeets(
   //   );
   // }
   const { arrFeetsPos, currLength, metricFeets } = feets;
-  console.log(
-    arrFeetsPos,
-    arrFeetsPos.map((p) => `${text}`.slice(...p))
-  );
+
   feets = { arrFeetsPos, currLength, metricFeets: metricFeets.flat() };
-  console.log(feets, text.length);
   return feets;
 }
 
@@ -306,7 +301,7 @@ function findTonicity(word) {
 
   const accentedVowelMatch = word.match(/[áéíóú]/gi);
 
-  if (preps.includes(word)) {
+  if (prepsProns.includes(word)) {
     return {
       tonicSyllable: '',
       syllableIndex: null,
