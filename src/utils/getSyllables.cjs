@@ -168,38 +168,6 @@ function getMetricFeets(
       removerForFeets: 0,
     }
   );
-  // } else {
-  //   console.log({ syllablesWords });
-  //   feets = syllablesWords.reduce(
-  //     (
-  //       acc,
-  //       { syllableIndex: indexCurr, syllables: sylCurr, word: wordCurr },
-  //       i,
-  //       arr
-  //     ) => {
-  //       if (indexCurr != null) {
-  //         let newFeetStart = sylCurr.slice(0, indexCurr - 1);
-  //         console.log({ indexCurr, sylCurr, newFeetStart });
-  //         if (newFeetStart.length) {
-  //           newFeetStart = newFeetStart.reduce((a, c) => a + c.length, 0);
-  //         } else {
-  //           newFeetStart = 0;
-  //         }
-  //         let newFeetFinish = newFeetStart + sylCurr[indexCurr - 1].length;
-  //         acc.arrFeetsPos.push([
-  //           acc.currLength + newFeetStart,
-  //           acc.currLength + newFeetFinish,
-  //         ]);
-  //       }
-  //       acc.currLength =
-  //         acc.currLength + wordCurr.length + (arr.length - 1 != i);
-  //       const newTonicSyl = sylCurr.map((s, i) => (i == indexCurr - 1 ? 1 : 0));
-  //       acc.metricFeets.push(newTonicSyl);
-  //       return { ...acc, metricFeets: acc.metricFeets.flat() };
-  //     },
-  //     { currLength: 0, arrFeetsPos: [], metricFeets: [] }
-  //   );
-  // }
   const { arrFeetsPos, currLength, metricFeets } = feets;
 
   feets = { arrFeetsPos, currLength, metricFeets: metricFeets.flat() };

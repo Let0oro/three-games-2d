@@ -8,6 +8,8 @@ require("dotenv").config();
 
 const app = express();
 const server = createServer(app);
+let turnPlayers;
+let totalPlayers = 0;
 
 const io = new Server(server, {
   cors: {
@@ -18,19 +20,26 @@ const io = new Server(server, {
 });
 
 app.use(express.json());
-app.use(
-  cors()
-);
+app.use(cors());
 
 app.get("/memory", memoryserver);
 
 io.on("connection", (socket) => {
   console.log("A user connected");
+  turnPlayers = 0;
+
+  socket.on("newPlayer", () => {
+    totalPlayers++;
+  });
 
   socket.on("line", (data) => {
-    // console.log({ data });
     io.emit("line", data);
+    turnPlayers = (turnPlayers >= (totalPlayers-1) ? 0 : turnPlayers + 1);
   });
+
+  socket.on("myTurn", () => io.emit("myTurn", totalPlayers));
+
+  socket.on("getTurn", () => io.emit("getTurn", turnPlayers));
 
   socket.on("evaluate", async (poem) => {
     const evaluation = await generatePoetryEvaluation(poem);
@@ -39,6 +48,7 @@ io.on("connection", (socket) => {
 
   socket.on("disconnect", () => {
     console.log("A user disconnected");
+    totalPlayers--;
   });
 });
 
