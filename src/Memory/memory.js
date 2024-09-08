@@ -1,7 +1,7 @@
 import axios from "axios";
 import "./memory.css"
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
     const memoryGame = document.getElementById('memory-game');
     let firstCard, secondCard;
     let lockBoard = false;

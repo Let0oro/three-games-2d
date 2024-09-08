@@ -26,4 +26,25 @@ nav ul li {
 }
 section {
   margin-top: 20px;
+  display: none;
+}
+
+h2, h3, h4 {
+  text-align: center;
+}
+
+ul {
+  display: block;
+  text-align: center;
+}
+
+ul li a {
+  color: #4fc43f;
+  text-decoration: none;
+  background-color: #39129ca9;
+  padding: 4px 8px;
+  
+  &:hover {
+    color: #27751d
+  }
 }
