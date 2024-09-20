@@ -134,8 +134,9 @@ document.addEventListener("DOMContentLoaded", () => {
       const currentTurnSymbol = turn & 1 ? "O" : "X";
       const { rowsTilesText: prevArr } = tilesRowTicTacToe(parent);
 
-      if (finished && confirm("The game is finished, reload?")) {
-        return parent.querySelectorAll(".tile").forEach(tile => {
+      if (finished) {
+        if (confirm("The game is finished, reload?")) {
+          return parent.querySelectorAll(".tile").forEach(tile => {
             tile.innerHTML = " ";
             tile.removeAttribute("aria-data-player");
             tile.style.backgroundColor = "#f0f0f0"
@@ -143,7 +144,9 @@ document.addEventListener("DOMContentLoaded", () => {
             turn = 1;
             showTurn.innerHTML = "Turn: "
             showMovs.innerHTML = "Movements: "
-        })
+          })
+        }
+        return;
       }
 
       if (/\s+/gi.test(prevArr.join("")) && text.trim()) return badEffect(this);
